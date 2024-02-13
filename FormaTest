@@ -1,0 +1,40 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class FormaTest {
+    @Test
+    public void testToString() {
+        Forma esfera = new Esfera(15);
+        Forma rectangulo = new Rectangulo(20, 35);
+        Forma cilindro = new Cilindro(10, 30);
+
+        assertEquals("Forma: Esfera", esfera.toString());
+        assertEquals("Forma: Rectángulo", rectangulo.toString());
+        assertEquals("Forma: Cilindro", cilindro.toString());
+    }
+
+    @Test
+    public void testArea() {
+        Forma esfera = new Esfera(15);
+        Forma rectangulo = new Rectangulo(20, 35);
+        Forma cilindro = new Cilindro(10, 30);
+
+        assertEquals(2827.433388, esfera.area(), 0.0001);
+        assertEquals(700, rectangulo.area(), 0);
+        assertEquals(9424.77796, cilindro.area(), 0.0001);
+    }
+
+    @Test
+    public void testCalcularCantidadPintura() {
+        Pintura pintura = new Pintura(250);
+
+        Forma rectangulo = new Rectangulo(20, 35);
+        Forma esfera = new Esfera(15);
+        Forma cilindro = new Cilindro(10, 30);
+
+        assertEquals(2.8, pintura.calcularCantidadPintura(rectangulo), 0.1);
+        assertEquals(11.3, pintura.calcularCantidadPintura(esfera), 0.1);
+        assertEquals(37.7, pintura.calcularCantidadPintura(cilindro), 0.1);
+    }
+
+}
